@@ -1,0 +1,32 @@
+{
+  "name": "reca-api",
+  "version": "1.0.0",
+  "description": "RESTful API for RECA app",
+  "author": "ivomarsan <ivomarlucio@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "angular-resource": "*",
+    "angular-input-masks": "*",
+    "ejs": "*",
+    "path": "*",
+    "bcrypt": "*",
+    "morgan": "*",
+    "moment": "*",
+    "express": "*",
+    "namesify": "*",
+    "mongoose": "*",
+    "html-pdf": "*",
+    "jwt-simple": "*",
+    "nodemailer": "*",
+    "body-parser": "*",
+    "compression": "*",
+    "express-load": "*",
+    "method-override": "*"
+  }
+}

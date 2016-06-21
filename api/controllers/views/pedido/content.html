@@ -1,0 +1,322 @@
+<style media="print">
+body {
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Calibri, sans-serif;
+  color: #282828;
+  background-color: #fff;
+  font-size: .5rem;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-transform: uppercase;
+  text-align: center;
+  height: 7rem;
+}
+header h1,
+header h3 {
+  position: relative;
+  top: 4.5rem;
+  font-size: .7rem;
+}
+header img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+table,
+.passageiros {
+  text-transform: uppercase;
+  font-size: .5rem;
+  width: 100%;
+}
+table thead,
+.passageiros header {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1rem;
+  height: auto;
+}
+table tbody td,
+.passageiros article span {
+  border-right: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+}
+table tbody td:last-child,
+.passageiros article span:last-child {
+  border-right: none;
+}
+.passageiros article span,
+.passageiros header span {
+  width: 19%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  display: inline-block;
+}
+.passageiros article span.nome {
+  width: 40%;
+  text-align: left;
+}
+.passageiros header span:first-child {
+  width: 38%;
+}
+
+
+.tabela tr td:nth-child(even) {
+  height: 1.5rem;
+}
+.tabela tr td:nth-child(odd) {
+  text-align: right;
+  font-weight: bold;
+  width: 0;
+}
+.tabela tr td:first-child {
+  position: relative;;
+  width: 10%;
+}
+
+i {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 80%;
+  text-decoration: underline;
+  white-space: pre;
+  color: #aaa
+
+}
+
+</style>
+<!-- GERAL -->
+<header>
+	<img src="{{ifce}}" alt="Instituto Federal do Ceará" height="50"/>
+	<h1>Requisição de Veículo Oficial</h1>
+</header>
+
+<table>
+  <thead>
+      <tr>
+          <td>Solicitante</td>
+          <td>Matrícula</td>
+          <td>Celular</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ REQ_SOLICITANTE }}</td>
+          <td>{{ REQ_MATRICULA }}</td>
+          <td>{{ REQ_CELULAR | cell }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+      <tr>
+          <td>Setor</td>
+          <td>E-mail</td>
+          <td>Pessoa para Contato</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ REQ_SETOR }}{{tel}}</td>
+          <td>{{ REQ_EMAIL }}</td>
+          <td>{{ REQ_CONTATO }}, {{ REQ_CONTATO_CEL | cell }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+      <tr>
+          <td>Destino</td>
+          <td>Nº de Passageiros</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ REQ_DESTINO }}</td>
+          <td>{{ REQ_PASSAGEIROS }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+      <tr>
+          <td>Saída</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ REQ_DATA_SAIDA | date }}. {{ REQ_LOCAL_SAIDA }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+<table>
+  <thead>
+      <tr>
+          <td>Retorno</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ REQ_DATA_RETORNO | date }}. {{ REQ_LOCAL_RETORNO }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+      <tr>
+          <td>Motivo</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>{{ REQ_MOTIVO }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+      <tr>
+        <td>Roteiro</td>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>{{ REQ_ROTEIRO }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3>PASSAGEIROS</h3>
+
+<section class="passageiros">
+  <header>
+    <span>Nome</span>
+    <span>Matrícula</span>
+    <span>CPF</span>
+    <span>Contato</span>
+  </header>
+  <article>
+    {{passageiros}}
+  </article>
+</section>
+
+<!-- <section class="passageiros" id="pageHeader-2">
+  <header>
+    <span>Nome</span>
+    <span>Matrícula</span>
+    <span>CPF</span>
+    <span>Contato</span>
+  </header>
+</section>
+<section id="pageHeader">Default header</section>
+<section id="pageHeader-2">Header on second page</section>
+<section id="pageHeader-first"></section>
+<section id="pageHeader-last"></section> -->
+
+
+<!-- Quebra linha -->
+<div style="page-break-after: always"></div>
+
+
+
+<!-- MOTORISTAS -->
+<header>
+	<h1>Uso exclusivo do setor de transporte</h3>
+</header>
+
+<table class="tabela">
+  <tr>
+    <td>Solicitação Atendida</td>
+    <td>
+      (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) Sim<br>
+      (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) Não
+    </td>
+    <td>Data de Recebimento</td>
+    <td>
+      <br><i>          /            /                   </i>
+    </td>
+    <td>Veículo</td>
+    <td colspan="3"></td>
+  </tr>
+  <tr>
+    <td>Motivo</td>
+    <td colspan="7"></td>
+  </tr>
+  <tr>
+    <td>Motorista</td>
+    <td colspan="3"></td>
+    <td>Telefone</td>
+    <td colspan="3">
+      <br><i>(          )                                                  </i>
+    </td>
+  </tr>
+  <tr>
+    <td>Combustível</td>
+    <td colspan="3">
+      (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) Diesel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) Álcool &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) Gasolina
+    </td>
+    <td>Qtd. Litros</td>
+    <td colspan="3"></td>
+  </tr>
+</table>
+<table class="tabela">
+  <tr>
+    <td>Vr. Litro</td>
+    <td>R$</td>
+    <td>Vr. Total</td>
+    <td>R$</td>
+  <tr>
+  </tr>
+    <td>Km Inicial</td>
+    <td style="width: 40%"></td>
+    <td>Km Final</td>
+    <td style="width: 40%"></td>
+  </tr>
+  <tr>
+    <td>Necessidade de guarda do veículo oficial em garagem particular</td>
+    <td>
+      (&nbsp;&nbsp;&nbsp;) Sim
+      (&nbsp;&nbsp;&nbsp;) Não
+    </td>
+    <td><br>Empresa<br><br><br>Motivo</td>
+    <td><br>
+      <i>                                                                                                 </i>
+      <br><br><br>
+      <i>                                                                                                 </i>
+    </td>
+
+  </tr>
+</table>
+
+<p style="text-align: center; margin-top: 7rem;">
+  <i>                                                                                                                 </i>
+  <br>Assinatura do coordenador do curso (professor)
+</p>
+<p style="text-align: center; margin-top: 4rem;">
+  <i>                                                                                                                 </i>
+  <br>Assinatura do chefe do Dpt. Ensino
+</p>
+<p style="text-align: center; margin-top: 4rem;">
+  <i>                                                                                                                 </i>
+  <br>Assinatura do coordenador de transportes
+</p>
