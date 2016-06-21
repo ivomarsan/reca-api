@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
     , Schema = mongoose.Schema
-    , bcrypt = require('bcrypt')
+    , bcrypt = require('bcrypt-nodejs')
   ;
 
 module.exports = () => {

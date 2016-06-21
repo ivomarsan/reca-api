@@ -149,31 +149,17 @@ module.exports = (app) => {
     return headers.authorization;
   };
   controller.listPedidos = (req, res) => {
-    // let token = getToken(req.headers);
-    // if (!token)
-    //   res.status(403).json({ success: false, message: 'Token Inválido' });
-    // else {
-    //   let decode = jwt.decode(token, process.env.JWT_SECRET);
-    //   console.log(decode);
-    //   User.findOne({ user: decode.user }, (err, user) => {
-    //     if(err) throw err;
-    //     else if(!user)
-    //       res.status(500).json({ success: false, message: 'O Token não corresponde ao Usuário' });
-    //     else {
-          Pedido.find().exec()
-            .then
-            ( (data) => {
-                res.json(data);
-              }
-            , (err) => {
-                log.err(err);
-                res.status(500).json(err);
-              }
-            )
-          ;
-    //     }
-    //   });
-    // }
+    Pedido.find().exec()
+      .then
+      ( (data) => {
+          res.json(data);
+        }
+      , (err) => {
+          log.err(err);
+          res.status(500).json(err);
+        }
+      )
+    ;
   };
 
 

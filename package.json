@@ -9,13 +9,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "angular": "*",
-    "angular-route": "*",
-    "angular-resource": "*",
-    "angular-input-masks": "*",
-    "ejs": "*",
     "path": "*",
-    "bcrypt": "*",
     "morgan": "*",
     "moment": "*",
     "express": "*",
@@ -27,6 +21,7 @@
     "body-parser": "*",
     "compression": "*",
     "express-load": "*",
+    "bcrypt-nodejs": "*",
     "method-override": "*"
   }
 }
