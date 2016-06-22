@@ -37,7 +37,7 @@ module.exports = () => {
     if (this.isModified('pass') || this.isNew) {
       bcrypt.genSalt(10, (err, salt) => {
         if(err) return next(err);
-        bcrypt.hash(_.pass, salt, (err, hash) => {
+        bcrypt.hash(_.pass, salt, null, (err, hash) => {
           if(err) return next(err);
           _.pass = hash;
           next();

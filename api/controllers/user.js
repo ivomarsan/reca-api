@@ -21,14 +21,14 @@ module.exports = (app) => {
   */
   controller.signin = (req, res) => {
     if(!req.body.user || !req.body.pass)
-      res.status(401).json({ success: false, message: 'Falha na Autenticação' });
+      res.status(401).json({ success: false, message: 'Erro no cabeçalho da requisição' });
     else {
+console.log(req.body);
       let newUser = new User({
         user: req.body.user,
         pass: req.body.pass
       });
 
-      //Salvando o usuário
       newUser.save((err, user) => {
         if(err)
           res.status(400).json({ success: false, message: err.message });
